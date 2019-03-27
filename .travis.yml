@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t cohenshay/docker-aws -f dockerfile.dev .
+
+script:
+  - docker run  cohenshay/docker-aws npm run test -- --coverage
